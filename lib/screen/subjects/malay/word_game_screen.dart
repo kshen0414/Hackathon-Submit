@@ -147,6 +147,22 @@ class _WordGameScreenState extends State<WordGameScreen> {
     );
   }
 
+  void _skipWord() {
+    if (_currentIndex < _sessionWords.length - 1) {
+      setState(() {
+        _currentIndex++;
+        _spokenText = '';
+        _isCorrect = false;
+        _status = '';
+        if (_isListening) {
+          _stopListening();
+        }
+      });
+    } else {
+      _showSessionComplete();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -178,12 +194,11 @@ class _WordGameScreenState extends State<WordGameScreen> {
       ),
       body: Column(
         children: [
-          // Progress Bar
           LinearProgressIndicator(
             value: (_currentIndex + 1) / wordsPerSession,
             backgroundColor: Colors.grey[300],
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-            minHeight: 8, // Makes the progress bar thicker
+            valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
+            minHeight: 8,
           ),
           Expanded(
             child: Container(
@@ -262,33 +277,64 @@ class _WordGameScreenState extends State<WordGameScreen> {
                           ),
                         const SizedBox(height: 24),
 
-                        // Microphone button
-                        Container(
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: _isListening ? Colors.red : Colors.blue,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.3),
-                                spreadRadius: 2,
-                                blurRadius: 5,
+                        // Buttons row
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            // Skip button
+                            Container(
+                              height: 80,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.grey[400],
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    spreadRadius: 2,
+                                    blurRadius: 5,
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                          child: IconButton(
-                            iconSize: 40,
-                            icon: Icon(
-                              _isListening ? Icons.mic : Icons.mic_none,
-                              color: Colors.white,
+                              child: IconButton(
+                                iconSize: 40,
+                                icon: const Icon(
+                                  Icons.skip_next,
+                                  color: Colors.white,
+                                ),
+                                onPressed: _skipWord,
+                              ),
                             ),
-                            onPressed: _isListening ? _stopListening : _listen,
-                          ),
+                            const SizedBox(width: 32),
+                            // Microphone button
+                            Container(
+                              height: 80,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: _isListening ? Colors.red : Colors.blue,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.3),
+                                    spreadRadius: 2,
+                                    blurRadius: 5,
+                                  ),
+                                ],
+                              ),
+                              child: IconButton(
+                                iconSize: 40,
+                                icon: Icon(
+                                  _isListening ? Icons.mic : Icons.mic_none,
+                                  color: Colors.white,
+                                ),
+                                onPressed:
+                                    _isListening ? _stopListening : _listen,
+                              ),
+                            ),
+                          ],
                         ),
 
-                        // Next button
-                        // Next button
+                        // Next button (when correct)
                         if (_isCorrect) ...[
                           const SizedBox(height: 24),
                           SizedBox(
@@ -299,23 +345,21 @@ class _WordGameScreenState extends State<WordGameScreen> {
                               icon: const Icon(
                                 Icons.arrow_forward,
                                 size: 24,
-                                color: Colors.white, // White icon
+                                color: Colors.white,
                               ),
                               label: const Text(
                                 'Next Word',
                                 style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.white, // White text
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(
-                                    0xFF487CFC), // Using your app's blue color
-                                elevation: 2, // Slight shadow
+                                backgroundColor: const Color(0xFF487CFC),
+                                elevation: 2,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                      10), // Rounded corners
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
                             ),
