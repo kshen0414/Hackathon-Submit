@@ -96,8 +96,6 @@ Team Name : Try Lah
   <img src="README_images/FAQ.jpg" alt="FAQ" width="300"/>
 </p>
 
----
-
 
 
 # Extra Info (For Bonus marks)
