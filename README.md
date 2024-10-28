@@ -97,6 +97,22 @@ Team Name : Try Lah
 </p>
 
 
+# Extra Info (For Bonus marks)
+
+Additionally, I have uploaded my app (Cerah) on Huawei AppGallery. However, It is still pending review
+
+- Upload date : 28-10-2024
+- To note, review process might fluctuate from **2-7 days**
+
+
+
+Below screenshot shows the proof of Upload
+
+<p align="center">
+  <img src="README_images/huawei.png" alt="FAQ" width="800"/>
+</p>
+
+
 
 
 
