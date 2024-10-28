@@ -1,16 +1,14 @@
-# education_app
+# Cerah
 
-A new Flutter project.
+Hi this is Kok Shen here 👋👋 below will be my basic participant information
 
-## Getting Started
+Name : Chang Kok Shen
 
-This project is a starting point for a Flutter application.
+Email : kokshen3414@gmail.com
 
-A few resources to get you started if this is your first Flutter project:
+Phone Number : 014-9713623
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Team Registration Type :  Team Solo
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Team Name : Try Lah
+
