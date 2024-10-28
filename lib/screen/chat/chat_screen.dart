@@ -1,4 +1,6 @@
+// chat_screen.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../../services/chat_service.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -13,7 +15,6 @@ class _ChatScreenState extends State<ChatScreen> {
   final List<Message> _messages = [];
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
-  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -40,7 +41,8 @@ class _ChatScreenState extends State<ChatScreen> {
 
     setState(() {
       _messages.add(Message(text: userMessage, isUser: true));
-      _isLoading = true;
+      // Add an empty message for loading state
+      _messages.add(Message(text: "", isUser: false));
     });
 
     _scrollToBottom();
@@ -49,18 +51,20 @@ class _ChatScreenState extends State<ChatScreen> {
       final response = await _chatService.getResponse(userMessage);
 
       setState(() {
+        // Replace the empty loading message with the response
+        _messages.removeLast();
         _messages.add(Message(text: response, isUser: false));
-        _isLoading = false;
       });
 
       _scrollToBottom();
     } catch (e) {
       setState(() {
+        // Replace the empty loading message with error message
+        _messages.removeLast();
         _messages.add(Message(
           text: 'Sorry, something went wrong. Please try again.',
           isUser: false,
         ));
-        _isLoading = false;
       });
     }
   }
@@ -68,7 +72,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5), // Light gray background
+      backgroundColor: const Color(0xFFF5F5F5),
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -77,14 +81,6 @@ class _ChatScreenState extends State<ChatScreen> {
           backgroundColor: Colors.transparent,
           leading: Container(
             margin: const EdgeInsets.only(left: 8),
-            // child: IconButton(
-            //   icon: const Icon(
-            //     Icons.keyboard_backspace,
-            //     color: Colors.black87,
-            //     size: 28,
-            //   ),
-            //   onPressed: () => Navigator.pop(context),
-            // ),
           ),
           title: const Text(
             "Cerah Education Bot",
@@ -117,8 +113,7 @@ class _ChatScreenState extends State<ChatScreen> {
               onTap: () => FocusScope.of(context).unfocus(),
               child: ListView.builder(
                 controller: _scrollController,
-                padding: const EdgeInsets.fromLTRB(
-                    16, 12, 16, 8), // Reduced bottom padding
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
                 itemCount: _messages.length,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.only(top: 8),
@@ -127,23 +122,6 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             ),
           ),
-          if (_isLoading)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8), // Reduced padding
-              child: Center(
-                child: SizedBox(
-                  width: 24, // Made smaller
-                  height: 24, // Made smaller
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      Theme.of(context).primaryColor,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          // Modified input container
           Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -156,15 +134,13 @@ class _ChatScreenState extends State<ChatScreen> {
               ],
             ),
             child: Container(
-              // Removed SafeArea
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
                 color: Colors.grey[100],
                 borderRadius: BorderRadius.circular(25),
               ),
               child: Row(
-                crossAxisAlignment:
-                    CrossAxisAlignment.center, // Changed to center
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: TextField(
@@ -177,7 +153,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(
                           horizontal: 20,
-                          vertical: 20, // Reduced padding
+                          vertical: 20,
                         ),
                       ),
                       textCapitalization: TextCapitalization.sentences,
@@ -194,7 +170,6 @@ class _ChatScreenState extends State<ChatScreen> {
                         onPressed: _sendMessage,
                         splashRadius: 24,
                         constraints: const BoxConstraints(
-                          // Added constraints
                           minWidth: 40,
                           minHeight: 40,
                         ),
@@ -244,14 +219,24 @@ class ChatBubble extends StatelessWidget {
         constraints: BoxConstraints(
           maxWidth: MediaQuery.of(context).size.width * 0.75,
         ),
-        child: Text(
-          message.text,
-          style: TextStyle(
-            color: message.isUser ? Colors.white : Colors.black87,
-            fontSize: 15,
-          ),
-        ),
+        child: !message.isUser && message.text.isEmpty ? 
+          // Show loading animation for empty assistant messages
+          const SizedBox(
+            width: 50,
+            child: SpinKitThreeBounce(
+              color: Colors.blueGrey,
+              size: 20.0,
+            ),
+          )
+          : Text(
+              message.text,
+              style: TextStyle(
+                color: message.isUser ? Colors.white : Colors.black87,
+                fontSize: 15,
+              ),
+            ),
       ),
     );
   }
 }
+
