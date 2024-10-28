@@ -95,6 +95,7 @@ Team Name : Try Lah
 <p align="center">
   <img src="README_images/FAQ.jpg" alt="FAQ" width="300"/>
 </p>
+
 ---
 
 
