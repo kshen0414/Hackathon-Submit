@@ -14,7 +14,7 @@ Team Name : Try Lah
 
 # App Logo
 
-<img src="README_images/Cerah.png" alt="Cerah" style="zoom:30%;" />
+<img src="README_images/Cerah.png" alt="Cerah"" />
 
 # Core Functionalities
 
