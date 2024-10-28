@@ -14,7 +14,7 @@ Team Name : Try Lah
 
 # App Logo
 
-<img src="D:\flutter_learn\hackathon_idea\education_app\assets\images\splash\Cerah.png" alt="Cerah" style="zoom:30%;" />
+<img src="README_images/Cerah.png" alt="Cerah" style="zoom:30%;" />
 
 # Core Functionalities
 
@@ -38,7 +38,7 @@ Team Name : Try Lah
 
 **Home Screen**
 
-<img src="C:\Users\kok shen\Dropbox\PC\Downloads\Telegram Desktop\HomeScreen.jpg" alt="HomeScreen" style="zoom:25%;" />
+<img src="README_images/HomeScreen.jpg" alt="HomeScreen" style="zoom:25%;" />
 
 
 
@@ -48,7 +48,7 @@ Team Name : Try Lah
 
 **Math recognition**
 
-<img src="C:\Users\kok shen\Dropbox\PC\Downloads\Telegram Desktop\math_recognition.jpg" alt="math_recognition" style="zoom:33%;" />
+<img src="README_images/math_recognition.jpg" alt="math_recognition" style="zoom:33%;" />
 
 ---
 
@@ -56,7 +56,7 @@ Team Name : Try Lah
 
 **Short stories**
 
-<img src="C:\Users\kok shen\Dropbox\PC\Downloads\Telegram Desktop\short_stories.jpg" alt="short_stories" style="zoom:33%;" />
+<img src="README_images/short_stories.jpg" alt="short_stories" style="zoom:33%;" />
 
 ---
 
@@ -64,7 +64,7 @@ Team Name : Try Lah
 
 **Malay voice recognition**
 
-<img src="C:\Users\kok shen\Dropbox\PC\Downloads\Telegram Desktop\voice_recognition.jpg" alt="voice_recognition" style="zoom:33%;" />
+<img src="README_images/voice_recognition.jpg" alt="voice_recognition" style="zoom:33%;" />
 
 ---
 
@@ -72,7 +72,7 @@ Team Name : Try Lah
 
 **Cerah Education Bot**
 
-<img src="C:\Users\kok shen\Dropbox\PC\Downloads\Telegram Desktop\cerah_bot.jpg" alt="cerah_bot" style="zoom:35%;" />
+<img src="README_images/cerah_bot.jpg" alt="cerah_bot" style="zoom:35%;" />
 
 ---
 
@@ -80,7 +80,7 @@ Team Name : Try Lah
 
 **Frequently Asked Questions**
 
-<img src="C:\Users\kok shen\Dropbox\PC\Downloads\Telegram Desktop\FAQ.jpg" alt="FAQ" style="zoom:25%;" />
+<img src="README_images/FAQ.jpg" alt="FAQ" style="zoom:25%;" />
 
 
 
