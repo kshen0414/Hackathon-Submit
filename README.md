@@ -1,3 +1,22 @@
+# Main Setup
+
+1. Coding Editor : Visual Studio Code
+2. Programming Framework : Flutter (Dart Programming Language)
+3. Google Play Services
+4. Google Gemini API
+5. Pub Dev Packages
+
+# Dependency Management
+
+Since this is a flutter project, **all dependencies** used can be viewed in `pubspec.yaml`
+
+Additionally Flutter version `3.24.3` and Android SDK version `34.0.0`
+
+# Main Devices Tested
+
+1. Android Emulator : Pixel 7 API 31
+2. Physical Phone : Oppo A95
+
 # Cerah ☀️
 
 Hi this is Kok Shen here 👋👋 below will be my basic participant information
@@ -111,7 +130,6 @@ Below screenshot shows the proof of Upload
 <p align="center">
   <img src="README_images/huawei.png" alt="FAQ" width="800"/>
 </p>
-
 
 
 
