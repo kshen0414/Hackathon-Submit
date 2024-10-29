@@ -2,10 +2,16 @@ import 'package:education_app/screen/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await dotenv.load(fileName: ".env"); // This loads the .env file
+
+  // Add this debug print to verify the API key is loaded
+  print('API Key loaded: ${dotenv.env['GEMINI_API_KEY']?.substring(0, 10)}...');
+
   runApp(const MyApp());
 }
 

@@ -1,7 +1,7 @@
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ChatService {
-  static const String apiKey = 'AIzaSyAenDyBctl80PN5V3NmH4x1igTjiRHpy4o';   //for competition purpose, i will keep my API key here, please do not abuse it🥲🥲
   late final GenerativeModel _model;
   late final ChatSession _chat;
 
@@ -14,7 +14,7 @@ class ChatService {
   ChatService() {
     _model = GenerativeModel(
       model: 'gemini-1.5-pro-002',
-      apiKey: apiKey,
+      apiKey: dotenv.env['GEMINI_API_KEY'] ?? '',  // Get API key from .env
       generationConfig: GenerationConfig(
         temperature: 0.7,
         topP: 0.8,
