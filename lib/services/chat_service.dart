@@ -15,6 +15,8 @@ class ChatService {
     _model = GenerativeModel(
       model: 'gemini-1.5-pro-002',
       apiKey: dotenv.env['GEMINI_API_KEY'] ?? '',  // Get API key from .env
+      // for using the chat feature, you must define your own .env file in root directory
+      // inside the content would be ----> GEMINI_API_KEY = 'your_API_KEY created via google gemini'
       generationConfig: GenerationConfig(
         temperature: 0.7,
         topP: 0.8,
