@@ -135,4 +135,3 @@ Alternatively, judges may search up the application on **Huawei AppGallery** as 
 </p>
 
 
-
