@@ -118,19 +118,21 @@ Team Name : Try Lah
 
 # Extra Info (For Bonus marks)
 
-Additionally, I have uploaded my app (Cerah) on Huawei AppGallery. However, It is still pending review
+Additionally, I have uploaded my app (Cerah) on Huawei AppGallery for obtaining the bonus marks
 
 - Upload date : 28-10-2024
-- To note, review process might fluctuate from **2-7 days**
+- To note, a review process might fluctuate from **2-7 days** 
 
-
-
-Below screenshot shows the proof of Upload
+Below screenshot shows the proof of Upload in **Huawei AppGallery**
 
 <p align="center">
   <img src="README_images/huawei.png" alt="FAQ" width="800"/>
 </p>
+Alternatively, judges may search up the application on **Huawei AppGallery** as shown in the screenshot below
 
+<p align="center">
+  <img src="README_images/huawei_2.jpg" alt="FAQ" width="400"/>
+</p>
 
 
 
