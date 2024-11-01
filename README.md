@@ -128,6 +128,7 @@ Below screenshot shows the proof of Upload in **Huawei AppGallery**
 <p align="center">
   <img src="README_images/huawei.png" alt="FAQ" width="800"/>
 </p>
+
 Alternatively, judges may search up the application on **Huawei AppGallery** as shown in the screenshot below
 
 <p align="center">
