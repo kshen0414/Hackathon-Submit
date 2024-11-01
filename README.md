@@ -10,7 +10,7 @@
 
 Since this is a flutter project, **all dependencies** used can be viewed in `pubspec.yaml`
 
-Additionally Flutter version `3.24.3` and Android SDK version `34.0.0`
+Additionally Flutter version `3.24.3` and Android SDK version `34.0.0` are used
 
 # Main Devices Tested
 
